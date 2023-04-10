@@ -1,12 +1,22 @@
-<%= form_with url: login_path, method: :post do |form| %>
-  <%= form.label :email %>
-  <%= form.email_field :email %>
+<div class="container">
+  <h2 class="badge bg-primary text-wrap" style="width: auto; height: 30px; font-size: 20px;">Log In</h2>
+  <div class="card" >
+      <%= form_with url: login_path, method: :post do |form| %>
+      <div class="card" >
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-control" %><br>
+      </div>
 
-  <%= form.label :password %>
-  <%= form.password_field :password %>
+      <div class="card">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-control" %><br>
+      </div>
 
-  <%= form.label :remember_me %>
-  <%= form.check_box :remember_me %>
+      <%= form.label :remember_me, class: "form-label" %>
+      <%= form.check_box :remember_me %><br>
 
-  <%= form.submit "login" %>
-<% end %>
+      <%= form.submit "login", class: "btn btn-info" %>
+      <% end %>
+  </div>
+  <p>Don't have an account? <%= link_to "sign up!", new_user_path %></p>
+</div>

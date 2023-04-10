@@ -14,8 +14,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def login
-  end
+  def login; end
 
   def access
     user = User.find_by(email: params[:email].downcase)

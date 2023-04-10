@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root 'homes#index'
 
-  get 'login' => 'users#login'
   post 'login' => 'users#access'
-  get 'logout' => 'users#logout'
 
-  resources :users, only: [:new, :create]
+  resources :users, only: [:new, :create] do
+    collection do
+      get 'login'
+      delete 'logout'
+    end
+  end
 end

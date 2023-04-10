@@ -1,22 +1,33 @@
-<h1>Signup!</h1>
-<%= form_with model: @user do |form| %>
-  <%= form.label :username %>
-  <%= form.text_field :username %>
-  <% @user.errors.full_messages_for(:username).each do |message| %>
-    <div><%= message %></div>
-  <% end %>
+<div class="container" >
+  <div class="card">
+    <h1 class="badge bg-primary text-wrap" style="width: auto; height: 30px; font-size: 20px;">Signup!</h1>
+    <%= form_with model: @user do |form| %>
+      <div class="card">
+        <%= form.label :username, class: "form-label" %>
+        <%= form.text_field :username, class: "form-control"  %><br>
+        <% @user.errors.full_messages_for(:username).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
 
-  <%= form.label :email %>
-  <%= form.email_field :email %>
-    <% @user.errors.full_messages_for(:email).each do |message| %>
-    <div><%= message %></div>
-  <% end %>
+      <div class="card">
+        <%= form.label :email, class: "form-label" %>
+        <%= form.email_field :email, class: "form-control"  %><br>
+          <% @user.errors.full_messages_for(:email).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
 
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-    <% @user.errors.full_messages_for(:password).each do |message| %>
-    <div><%= message %></div>
-  <% end %>
+      <div class="card">
+        <%= form.label :password, class: "form-label" %>
+        <%= form.password_field :password, class: "form-control"  %><br>
+          <% @user.errors.full_messages_for(:password).each do |message| %>
+          <div><%= message %></div>
+        <% end %>
+      </div>
 
-  <%= form.submit %>
-<% end %>
+    <%= form.submit %>
+  <% end %>
+  <p>Already have an account? <%= link_to "log in", login_users_path %></p>
+  </div>
+</div>
