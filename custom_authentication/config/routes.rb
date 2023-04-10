@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  root 'homes#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  get 'login' => 'users#login'
+  post 'login' => 'users#access'
+  get 'logout' => 'users#logout'
+
+  resources :users, only: [:new, :create]
 end

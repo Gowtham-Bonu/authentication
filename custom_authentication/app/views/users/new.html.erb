@@ -1,0 +1,22 @@
+<h1>Signup!</h1>
+<%= form_with model: @user do |form| %>
+  <%= form.label :username %>
+  <%= form.text_field :username %>
+  <% @user.errors.full_messages_for(:username).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+
+  <%= form.label :email %>
+  <%= form.email_field :email %>
+    <% @user.errors.full_messages_for(:email).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+
+  <%= form.label :password %>
+  <%= form.password_field :password %>
+    <% @user.errors.full_messages_for(:password).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
+
+  <%= form.submit %>
+<% end %>
