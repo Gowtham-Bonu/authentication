@@ -12,6 +12,7 @@ test:
   encoding: unicode
   database: Custom_authentication_test
   pool: 5
+  host: localhost
   username: gowtham1
   password: Simform@123
 
