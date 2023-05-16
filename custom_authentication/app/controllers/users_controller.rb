@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to root_path, notice: "User has been signed up"
     else
-      flash.now[:alert] = "user has not been created!"
+      flash.now[:alert] = [@user.errors.full_messages].join(", ")
       render :new, status: :unprocessable_entity
     end
   end
