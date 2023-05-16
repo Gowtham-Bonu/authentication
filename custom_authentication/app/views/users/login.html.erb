@@ -4,12 +4,12 @@
       <%= form_with url: login_path, method: :post do |form| %>
       <div class="card" >
         <%= form.label :email, class: "form-label" %>
-        <%= form.email_field :email, class: "form-control" %><br>
+        <%= form.email_field :email, class: "form-control", required: true, type: :email %><br>
       </div>
 
       <div class="card">
         <%= form.label :password, class: "form-label" %>
-        <%= form.password_field :password, class: "form-control" %><br>
+        <%= form.password_field :password, class: "form-control", required: true, minlength: 6 %><br>
       </div>
 
       <%= form.label :remember_me, class: "form-label" %>
