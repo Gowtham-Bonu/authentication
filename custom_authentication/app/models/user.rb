@@ -1,11 +1,12 @@
 class User < ApplicationRecord
-  has_secure_password
 
   attr_accessor :remember_digest
 
   validates :username, :email, :password_digest, presence: true
   validates :email, :password_digest, uniqueness: true
   validates :password, length: { minimum: 6 }
+
+  has_secure_password
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
